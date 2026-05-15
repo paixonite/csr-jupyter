@@ -35,8 +35,7 @@ No frontend, a comunicação cliente-servidor assíncrona com AJAX é uma forma 
 
 A decisão de empacotar esse projeto em um container encaixou como uma luva. Com o Docker, eu resolvo a questão das dependências (o Docker se torna a única exigência para rodar o projeto) e ainda adiciono uma camada extra de proteção entre o código arbitrário que está sendo executado e a máquina de quem está usando.
 
-Utilizei da IA para auxiliar na redação da maior parte do código. Meu foco foi atuar no papel de arquiteto, planejando os fluxos, definindo as tecnologias, pensando nas decisões de segurança e revisando a lógica implementada.
-
+Utilizei inteligência artificial para auxiliar na redação da maior parte do código. Meu foco foi atuar no papel de arquiteto, planejando os fluxos, definindo as tecnologias, pensando nas decisões de segurança e revisando a lógica implementada. Ressalto ainda que compreendo e me responsabilizo por 100% do conteúdo deste repositório, e consigo explicar o raciocínio por trás de cada linha de código.
 ## Limitações
 
 * **Proteção fraca do Docker**: O container protege o computador que está hospedando a aplicação, mas o isolamento não é perfeito por dentro. Se o usuário enviar um script malicioso (como tentar apagar diretórios do sistema), o comando vai rodar e quebrar o ambiente interno do container. Se isso acontecesse, o sitema precisaria de um `docker-compose up` novamente para funcionar.
