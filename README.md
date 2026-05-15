@@ -17,7 +17,7 @@ Uma solução mínima para executar python no servidor a partir de uma interface
 ## Estrutura do projeto / stack
 
 O projeto foi estruturado com uma divisão bem clara de responsabilidades:
-* **Frontend**: Usei HTML, CSS e JavaScript puros para montar uma interface simples e responsiva. O script JS captura os dados do formulário e os envia no formato JSON para a API utilizando o método HTTP POST.
+* **Frontend**: Usei HTML, CSS e JavaScript puros para montar uma interface simples e fluida. O script JS captura os dados do formulário e os envia no formato JSON para a API utilizando o método HTTP POST.
 * **Backend**: Escolhi o framework Flask em Python para servir a página estática e expor a rota `/execute`, que recebe os scripts enviados pelo usuário.
 * **Execução**: Utilizei o módulo nativo `subprocess` do Python. Ele isola a execução do código em um processo independente, captura a saída (`stdout` ou `stderr`) e devolve o resultado para o frontend formatado em JSON.
 
@@ -39,7 +39,7 @@ Utilizei da IA para auxiliar na redação da maior parte do código. Meu foco fo
 
 ## Limitações
 
-* **Proteção fraca do Docker**: O container proteje o computador que está hospedando a aplicação, mas o isolamento não é perfeito por dentro. Se o usuário enviar um script malicioso (como tentar apagar diretórios do sistema), o comando vai rodar e quebrar o ambiente interno do container. Se isso acontecesse, o sitema precisaria de um `docker-compose up` novamente para funcionar.
+* **Proteção fraca do Docker**: O container protege o computador que está hospedando a aplicação, mas o isolamento não é perfeito por dentro. Se o usuário enviar um script malicioso (como tentar apagar diretórios do sistema), o comando vai rodar e quebrar o ambiente interno do container. Se isso acontecesse, o sitema precisaria de um `docker-compose up` novamente para funcionar.
 * **Timeout travado**: Para evitar que um loop infinito trave o servidor, um timeout de 5 segundos foi implementado. Isso ignifica que qualquer código de realmente demore mais de 5 segundos pra executar, falhará.
 * **Bloqueio da entrada**: Na forma atual que o `subprocesses` funciona, o backend apenas envia a saída do script. Ou seja, se o código pedisse por algum tipo de input, nada aconteceria, e a execução falharia por timeout. 
 
