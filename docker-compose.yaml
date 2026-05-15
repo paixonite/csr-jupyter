@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    # Busca o Dockerfile na raiz
+    build: .
+    container_name: csr_jupyter
+    ports:
+      - "6543:6543"
+    environment:
+      # Desativa o buffering do Python
+      - PYTHONUNBUFFERED=1
